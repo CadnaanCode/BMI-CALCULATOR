@@ -38,36 +38,51 @@ const Bmi = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h4>BMI Calculator</h4>
-      <div className="row">
-        <label>Height (in meters)</label>
-        <input
-          type="number"
-          step="0.01"
-          placeholder="Enter Height"
-          onChange={(e) => setHeight(e.target.value)}
-          required
-        />
-      </div>
-      <div className="row">
-        <label>Weight (in kg)</label>
-        <input
-          type="number"
-          placeholder="Enter Weight"
-          required
-          onChange={(e) => setWeight(e.target.value)}
-        />
-      </div>
-      {error && <div className="error">{error}</div>}
-      <div className="row">
-        <button type="submit">Calculate BMI</button>
-      </div>
-      <div className="result-screen">
-        <h3>Your BMI is: {bmi}</h3>
-        <p>{category}</p>
-      </div>
-    </form>
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-red-700 to-yellow-400">
+      <form
+        onSubmit={handleSubmit}
+        className="bg-white p-6 rounded-lg shadow-lg w-80"
+      >
+        <h4 className="text-center text-brown-700 text-2xl mb-6">
+          BMI Calculator
+        </h4>
+        <div className="flex flex-col mb-4">
+          <label className="text-sm text-gray-700 mb-2">
+            Height (in meters)
+          </label>
+          <input
+            type="number"
+            step="0.01"
+            placeholder="Enter Height"
+            onChange={(e) => setHeight(e.target.value)}
+            required
+            className="p-3 border border-brown-500 rounded-lg text-lg outline-none"
+          />
+        </div>
+        <div className="flex flex-col mb-4">
+          <label className="text-sm text-gray-700 mb-2">Weight (in kg)</label>
+          <input
+            type="number"
+            placeholder="Enter Weight"
+            required
+            onChange={(e) => setWeight(e.target.value)}
+            className="p-3 border border-brown-500 rounded-lg text-lg outline-none"
+          />
+        </div>
+        {error && <div className="text-red-500 text-sm mb-4">{error}</div>}
+        <div className="mb-6">
+          <button type="submit" className="border-red-500 text-red">
+            Calculate BMI
+          </button>
+        </div>
+        <div className="mt-6 text-center p-4 border border-brown-500 rounded-lg bg-gray-100">
+          <h3 className="text-xl font-semibold text-brown-700">
+            Your BMI is: {bmi}
+          </h3>
+          <p className="text-lg text-gray-700">{category}</p>
+        </div>
+      </form>
+    </div>
   );
 };
 
